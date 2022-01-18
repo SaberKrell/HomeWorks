@@ -128,16 +128,24 @@ public class Homework3 {
 // Тут пока сложности в процессе доработки
 
     private static int[] offsetElements(int n ,int[] array) {
-        int buffArray;
-        int buffArray1 = array[n-1];
-        int b = array.length-1;
-        buffArray = array[array.length-1];
-        while(b != n){
-            array[b] = array[b-n];
-            b--;
-        }
-        array[n] = buffArray1;
-        array[n-1] = buffArray;
+        if (n > 0){
+            for ( int j = 0 ; j < n; j++ ){
+                int firstInArray = array[0];
+                for (int i = 0; i < array.length ; i++) {
+                    if(i<9) array[i] = array[i+1];
+                }
+                array[array.length-1] = firstInArray;
+            }
+        } else if (n < 0){
+            for ( int j = n ; j < 0; j++ ){
+                int lastInArray = array[array.length-1];
+                for (int i = array.length-1; i > 0 ; i--) {
+                    if(i>=0) array[i] = array[i-1];
+                }
+                array[0] = lastInArray;
+            }
+        } else {System.out.println("Вы ввели 0");}
+        System.out.println(Arrays.toString(array));
         return array;
     }
 
