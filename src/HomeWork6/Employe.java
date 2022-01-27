@@ -1,5 +1,5 @@
 package HomeWork6;
-class employeArr {
+class EmployeArr {
     static Employe[] npc = new Employe[6];
 
 }
