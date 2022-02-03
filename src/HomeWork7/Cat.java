@@ -1,28 +1,37 @@
 package HomeWork7;
 
 class Cat extends Animals {
-    protected static int cats = 0;
+    private static int cats = 0;
 
     public Cat(String name, int age, String color) {
         super(name, age, color);
+        satiety = 100;
         ++cats;
     }
 
-    void swim(int range) {
-        System.out.println(this.name + " шипит и убегает ");
+    public String swim(int range) {
+        sleep();
+        return name + " Не умеет плавать, поэтому лег спать";
     }
 
-    void run(int range) {
-        if (range > 200) {
-            System.out.println(this.name + " пробежал 200 метров и устал");
-        } else {
-            System.out.println(this.name + " пробежал " + range + " метров");
+    public String run(int range) {
+        if(satiety > 50) {
+            if ( range >= 200 ) {
+                this.satiety -= 20;
+                return name + " пробежал 200 метров и теперь очень голоден, накормите его";
+            } else {
+                this.satiety -= 10;
+                return name + " пробежал " + range + " метров";
+            }
         }
-
+        return name+ " не может бежать пока вы его не покормите";
+    }
+    public int sleep(){
+        return satiety -= 30;
+    }
+    static int showInfoCat() {
+        return cats;
     }
 
-    static void showInfo() {
-        System.out.println("Кошек создано - " + cats);
-    }
 }
 

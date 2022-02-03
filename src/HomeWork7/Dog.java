@@ -1,32 +1,42 @@
 package HomeWork7;
 
 class Dog extends Animals {
-    protected static int dogs = 0;
+    private static int dogs = 0;
 
-    public Dog(String name, int age, String color) {
-        super(name, age, color);
+    public Dog( String name, int age, String color ) {
+        super( name, age, color );
+        satiety = 100;
         ++dogs;
     }
 
-    void swim(int range) {
-        if (range > 10) {
-            System.out.println(this.name + " проплыл 10 метров и устал");
-        } else {
-            System.out.println(this.name + " проплыл " + range + " метров");
+    public String swim(int range) {
+       if(satiety > 50) {
+           if ( range > 10 ) {
+               satiety -= 20;
+               return name + " проплыл 10 метров и теперь хочет есть, накормите его";
+           } else {
+               this.satiety -= 10;
+               return name + " проплыл " + range + " метров";
+           }
+       }
+       return name+ " не может плыть пока вы его не покормите";
+    }
+
+    public String run(int range) {
+        if(satiety > 50) {
+            if ( range >= 500 ) {
+                satiety -= 20;
+                return this.name + " пробежал 500 метров и теперь очень голоден, накормите его";
+            } else {
+                satiety -= 10;
+                return name + " пробежал " + range + " метров";
+            }
         }
-
+        return name+ " не может бежать пока вы его не покормите";
     }
 
-    void run(int range) {
-        if (range > 500) {
-            System.out.println(this.name + " пробежал 500 метров и устал");
-        } else {
-            System.out.println(this.name + " пробежал " + range + " метров");
-        }
-
+    static int showInfoDog() {
+        return dogs;
     }
 
-    static void showInfo() {
-        System.out.println("Собак создано - " + dogs);
-    }
 }

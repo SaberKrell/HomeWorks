@@ -10,6 +10,7 @@ public abstract class Animals {
     protected int age;
     protected String color;
     static Random random = new Random();
+    protected int satiety;
 
     public static int random() {
         return random.nextInt(700);
@@ -19,21 +20,29 @@ public abstract class Animals {
         this.name = name;
         this.color = color;
         this.age = age;
-        animals = new Animals[0];
     }
 
-    abstract void swim(int var1);
+    abstract String swim(int var1);
 
-    abstract void run(int var1);
+    abstract String run(int var1);
 
-    static void showInfo() {
-        animalsCount = Dog.dogs + Cat.cats;
-        System.out.println("Всего создано животных - " + animalsCount);
-        Cat.showInfo();
-        Dog.showInfo();
+    static String showInfo() {
+        animalsCount = Dog.showInfoDog() + Cat.showInfoCat();
+        return "Всего создано животных - " + animalsCount +
+                ", кошек - " + Cat.showInfoCat() +
+                ", собак - " + Dog.showInfoDog();
+    }
+    public String satietyInfo(){
+        return "Выносливость "+ name+"а" + " = " + satiety + "%";
     }
 
-    void sleep() {
-        System.out.println(this.name + " спит ");
+    public String eat(Plate i){
+        int hunger = 100 - satiety;
+        if( satiety == 100) return name + " Не голоден";
+        else if ( i.plateInfo() > hunger ){
+            i.getFoodQuantity(hunger);
+            satiety += hunger;
+            return name + " сьел " + hunger + " еды";
+        } else return name + " не стал есть, положите больше еды!";
     }
 }
