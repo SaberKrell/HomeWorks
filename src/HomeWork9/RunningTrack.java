@@ -8,6 +8,7 @@ public class RunningTrack implements Crossable{
         this.length = length;
     }
 
+
     @Override
     public void cross(Actions athlete) {
         athlete.run(length);

@@ -1,6 +1,7 @@
 package HomeWork9;
 
 public class Human implements Actions{
+
     private final int maxLength;
     private final int maxHeight;
     boolean isActive;

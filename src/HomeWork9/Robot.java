@@ -27,4 +27,5 @@ public class Robot implements Actions{
             }
             if (maxHeight < height)isActive = false;
         }
-    }
+
+}

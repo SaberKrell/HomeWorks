@@ -27,4 +27,5 @@ public class Cat implements Actions{
         }
         if (maxHeight < height)isActive = false;
     }
+
 }

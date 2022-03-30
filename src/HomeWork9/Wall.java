@@ -12,4 +12,4 @@ public class Wall implements Crossable{
         public void cross(Actions athlete) {
             athlete.jump(height);
         }
-    }
+}
