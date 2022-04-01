@@ -7,6 +7,5 @@ public class MyArrayDataException extends Exception {
     MyArrayDataException(int i, int j) {
         this.i = i;
         this.j = j;
-
     }
 }

@@ -20,7 +20,6 @@ public class Main {
 
     }
 
-
     public static int method(String[][] arr) throws MyArraySizeException, MyArrayDataException {
         int count = 0;
         if (arr.length != 4) {
